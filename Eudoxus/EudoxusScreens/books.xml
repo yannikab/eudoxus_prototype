@@ -1,0 +1,11 @@
+<institution name="ΕΚΠΑ">
+  <department name="DIT">
+    <semester name="2ο Εξάμηνο">
+      <course name="Ανάλυση Ι">
+      <book code="22689021" title="Απειροστικός Λογισμός" author="Finney R.L., Weir M.D." publisher="Π. Ε. Κρήτης" pages="1236" isbn="524-182-7" />
+      <book code="45234" title="Γενικά Μαθηματικά - Τόμος Ι" author="Αθανασιάδης Χ.Ε." publisher="Συμμετρία" pages="560" isbn="266-248-9" />
+      <book code="45390" title="Εφαρμ. Απειροστικός Λογισμός" author="Τσίτσας Λ." publisher="Συμμετρία" pages="736" isbn="266-152-9" />
+      </course>
+    </semester>
+  </department>
+</institution>

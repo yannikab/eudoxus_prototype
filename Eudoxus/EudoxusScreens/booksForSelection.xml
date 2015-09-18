@@ -1,0 +1,22 @@
+<institution name="ΕΚΠΑ">
+  <department name="DIT">
+    <semester name="2ο Εξάμηνο">
+      <course name="Ανάλυση Ι">
+		<book code="22689021" title="Απειροστικός Λογισμός" author="Finney R.L., Weir M.D." publisher="Π. Ε. Κρήτης" pages="1236" isbn="524-182-7" />
+		<book code="45234" title="Γενικά Μαθηματικά - Τόμος Ι" author="Αθανασιάδης Χ.Ε." publisher="Συμμετρία" pages="560" isbn="266-248-9" />
+		<book code="45390" title="Εφαρμ. Απειροστικός Λογισμός" author="Τσίτσας Λ." publisher="Συμμετρία" pages="736" isbn="266-152-3" />
+      </course>
+    </semester>
+    <semester name="4ο Εξάμηνο">
+      <course name="Δίκτυα Επικοινωνιών Ι">
+		<book code="58853" title="Δίκτυα Επικοινωνιών" author="Walrand J." publisher="Κλειδάριθμος" pages="874" isbn="322-467-2" />
+		<book code="90684" title="Δίκτυα Υπολογιστών - Τόμος 1" author="Tanenbaum A.S." publisher="Παπασωτηρίου" pages="495" isbn="384-621-1" />
+		<book code="96784" title="Δικτύωση Υπολογιστών" author="J.F. Kurose" publisher="Συμμετρία" pages="948" isbn="958-243-3" />
+      </course>
+      <course name="Συστήματα Επικοινωνιών">
+		<book code="29473" title="Συστήματα Τηλεπικοινωνιών" author="Proakis J." publisher="Παν. Αθηνών" pages="933" isbn="524-182-7" />
+		<book code="84737343" title="Ψηφιακές Επικοινωνίες" author="Sklar B." publisher="Συμμετρία" pages="752" isbn="266-248-9" />
+      </course>
+    </semester>
+  </department>
+</institution>

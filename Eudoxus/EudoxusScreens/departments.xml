@@ -1,0 +1,17 @@
+  <institution name="ΕΚΠΑ">
+    
+    <department name="DIT">
+      <semester name="1ο Εξάμηνο" />
+      <semester name="2ο Εξάμηνο" />
+      <semester name="3ο Εξάμηνο" />
+      <semester name="4ο Εξάμηνο" />
+    </department>
+
+    <department name="ΜΙΘΕ">
+      <semester name="1ο Εξάμηνο" />
+      <semester name="2ο Εξάμηνο" />
+      <semester name="3ο Εξάμηνο" />
+      <semester name="4ο Εξάμηνο" />
+    </department>
+
+  </institution>

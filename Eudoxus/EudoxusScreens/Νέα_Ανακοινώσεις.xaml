@@ -1,0 +1,114 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Νέα_Ανακοινώσεις"
+	Width="640" Height="480">
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Eudoxus.Screens;component/GridMenu.xaml"/>
+				<ResourceDictionary Source="CustomTree.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="White" Style="{StaticResource gridStyle}">
+		<StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,6,0,0">
+		
+			<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width">
+
+				<Button Content="Εύδοξος" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Αρχική_Σελίδα"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+				<Button Content="Επιλογές Φοιτητή" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Επιλογών_Φοιτητή"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+				<Button Content="Ανακοινώσεις" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButtonDisabled}"/>
+
+			</StackPanel>
+			<Grid Margin="0,28,0,0" HorizontalAlignment="Center">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="16" />
+					<RowDefinition Height="24" />
+					<RowDefinition Height="24"/>
+					<RowDefinition Height="24"/>
+					<RowDefinition Height="24"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="80" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				
+				<TextBlock Grid.Column="0" Text="Ημ/νια" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+				<TextBlock Grid.Column="1" Text="Τίτλος" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+				
+				<TextBlock Grid.Column="0" Text="02/05/2014" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+				<Button Grid.Column="1" Content="Παράταση Περιόδου Δηλώσεων Εαρινού Εξαμήνου 2013-2014" Style="{StaticResource urlButton}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Grid.Row="1" >
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Ανακοίνωσης"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				
+				<TextBlock Grid.Column="0" Text="20/01/2014" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+				<Button Grid.Column="1" Content="Προγραμματισμένες Εργασίες Συντήρησης - 22/01/2014" Style="{StaticResource urlButton}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Grid.Row="2" >
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Ανακοίνωσης"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				
+				<TextBlock Grid.Column="0" Text="14/10/2013" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+				<Button Grid.Column="1" Content="Πλατφόρμα ανταλλαγής σχολικών βιβλίων" Style="{StaticResource urlButton}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Grid.Row="3" >
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Ανακοίνωσης"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				
+				<TextBlock Grid.Column="0" Text="04/01/2012" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" />
+				<Button Grid.Column="1" Content="Παράταση Περιόδου Διανομής Συγγραμμάτων Χειμερινού Εξαμήνου" Style="{StaticResource urlButton}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Grid.Row="4" >
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Ανακοίνωσης"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				
+			</Grid>
+		</StackPanel>
+		
+		<ComboBox Style="{StaticResource ComboBox-Sketch}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,6,0" Width="140" SelectedIndex="1">
+			<ComboBoxItem Content="Όλες" />
+			<ComboBoxItem Content="Φοιτητές" />
+			<ComboBoxItem Content="Εκδότες" />
+			<ComboBoxItem Content="Γραμματείες" />
+			<ComboBoxItem Content="Σημεία Διανομής" />
+		</ComboBox>
+
+	</Grid>
+</UserControl>

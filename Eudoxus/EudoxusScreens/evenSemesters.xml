@@ -1,0 +1,17 @@
+<institution name="ΕΚΠΑ">
+  <department name="DIT">
+    <semester name="2ο Εξάμηνο">
+      <course name="Ανάλυση Ι" />
+      <course name="Δομές Δεδομένων και Τεχνικές Προγραμματισμού" />
+      <course name="Ηλεκτρομαγνητισμός, Οπτική, Σύγχρονη Φυσική" />
+      <course name="Αρχιτεκτονική Υπολογιστών Ι" />
+    </semester>
+    <semester name="4ο Εξάμηνο">
+    <course name="Δίκτυα Επικοινωνιών I" />
+    <course name="Αλγόριθμοι και Πολυπλοκότητα" />
+    <course name="Υλοποίηση Συστημάτων Βάσεων Δεδομένων" />
+    <course name="Συστήματα Επικοινωνιών" />
+    <course name="Σχεδίαση και Χρήση Βάσεων Δεδομένων" />
+    </semester>
+  </department>
+</institution>

@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <ProjectGuid>{A553796A-A7FF-4001-9CAE-799C852AB7C5}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EudoxusScreens</RootNamespace>
+    <AssemblyName>Eudoxus.Screens</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls.Data" />
+    <Reference Include="System.Windows.Controls.Data.Input" />
+    <Reference Include="System.Windows.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <PropertyGroup>
+    <ExpressionBlendPrototypingEnabled>true</ExpressionBlendPrototypingEnabled>
+    <ExpressionBlendPrototypeHarness>false</ExpressionBlendPrototypeHarness>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Expression.Prototyping.Interactivity" />
+    <Reference Include="Microsoft.Expression.Prototyping.Runtime" />
+    <Reference Include="Microsoft.Expression.Prototyping.SketchControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SampleData\booksDataSource\booksDataSource.xaml.cs">
+      <DependentUpon>booksDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\departmentsDataSource\departmentsDataSource.xaml.cs">
+      <DependentUpon>departmentsDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\evenSemestersDataSource\evenSemestersDataSource.xaml.cs">
+      <DependentUpon>evenSemestersDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\faqStudentDataSource\faqStudentDataSource.xaml.cs">
+      <DependentUpon>faqStudentDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\institutionsDataSource\institutionsDataSource.xaml.cs">
+      <DependentUpon>institutionsDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\semestersDataSource\semestersDataSource.xaml.cs">
+      <DependentUpon>semestersDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ανακοίνωση.xaml.cs">
+      <DependentUpon>Ανακοίνωση.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Απλή_Αναζήτηση.xaml.cs">
+      <DependentUpon>Απλή_Αναζήτηση.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Αρχική_Σελίδα.xaml.cs">
+      <DependentUpon>Αρχική_Σελίδα.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Δημιουργία_Δήλωσης.xaml.cs">
+      <DependentUpon>Δημιουργία_Δήλωσης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Εγγραφή.xaml.cs">
+      <DependentUpon>Εγγραφή.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Επιλογή_Ομάδας.xaml.cs">
+      <DependentUpon>Επιλογή_Ομάδας.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Επισκόπηση_Δήλωσης.xaml.cs">
+      <DependentUpon>Επισκόπηση_Δήλωσης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ιστορικό_Δηλώσεων.xaml.cs">
+      <DependentUpon>Ιστορικό_Δηλώσεων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Μαθήματα.xaml.cs">
+      <DependentUpon>Μαθήματα.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Νέα_Ανακοινώσεις.xaml.cs">
+      <DependentUpon>Νέα_Ανακοινώσεις.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Παλαιά_Δήλωση.xaml.cs">
+      <DependentUpon>Παλαιά_Δήλωση.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Προφίλ_Φοιτητή.xaml.cs">
+      <DependentUpon>Προφίλ_Φοιτητή.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σύνδεση.xaml.cs">
+      <DependentUpon>Σύνδεση.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σύνθετη_Αναζήτηση.xaml.cs">
+      <DependentUpon>Σύνθετη_Αναζήτηση.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα Μαθημάτων.xaml.cs">
+      <DependentUpon>Σελίδα Μαθημάτων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Ανακοίνωσης.xaml.cs">
+      <DependentUpon>Σελίδα_Ανακοίνωσης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Απλής_Αναζήτησης.xaml.cs">
+      <DependentUpon>Σελίδα_Απλής_Αναζήτησης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Δημιουργίας_Δήλωσης.xaml.cs">
+      <DependentUpon>Σελίδα_Δημιουργίας_Δήλωσης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Εγγραφής.xaml.cs">
+      <DependentUpon>Σελίδα_Εγγραφής.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Επιλογών_Γραμματείας.xaml.cs">
+      <DependentUpon>Σελίδα_Επιλογών_Γραμματείας.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Επιλογών_Εκδότη.xaml.cs">
+      <DependentUpon>Σελίδα_Επιλογών_Εκδότη.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Επισκόπησης_Δήλωσης.xaml.cs">
+      <DependentUpon>Σελίδα_Επισκόπησης_Δήλωσης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Ιδρυμάτων.xaml.cs">
+      <DependentUpon>Σελίδα_Ιδρυμάτων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Αριστερό_μενού.xaml.cs">
+      <DependentUpon>Αριστερό_μενού.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Επικεφαλίδα_σελίδας.xaml.cs">
+      <DependentUpon>Επικεφαλίδα_σελίδας.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Επιλογές Γραμματείας.xaml.cs">
+      <DependentUpon>Επιλογές Γραμματείας.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Επιλογές Εκδότη.xaml.cs">
+      <DependentUpon>Επιλογές Εκδότη.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Επιλογές Φοιτητή.xaml.cs">
+      <DependentUpon>Επιλογές Φοιτητή.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ιδρύματα.xaml.cs">
+      <DependentUpon>Ιδρύματα.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Εξάμηνα.xaml.cs">
+      <DependentUpon>Εξάμηνα.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Επιλογών_Φοιτητή.xaml.cs">
+      <DependentUpon>Σελίδα_Επιλογών_Φοιτητή.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Εξαμήνων.xaml.cs">
+      <DependentUpon>Σελίδα_Εξαμήνων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Ιστορικού_Δηλώσεων.xaml.cs">
+      <DependentUpon>Σελίδα_Ιστορικού_Δηλώσεων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Νέων_Ανακοινώσεων.xaml.cs">
+      <DependentUpon>Σελίδα_Νέων_Ανακοινώσεων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Παλαιάς_Δήλωσης.xaml.cs">
+      <DependentUpon>Σελίδα_Παλαιάς_Δήλωσης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Προφίλ_Φοιτητή.xaml.cs">
+      <DependentUpon>Σελίδα_Προφίλ_Φοιτητή.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Σύνδεσης.xaml.cs">
+      <DependentUpon>Σελίδα_Σύνδεσης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Σύνθετης_Αναζήτησης.xaml.cs">
+      <DependentUpon>Σελίδα_Σύνθετης_Αναζήτησης.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Συγγραμμάτων.xaml.cs">
+      <DependentUpon>Σελίδα_Συγγραμμάτων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Συχνών_Ερωτήσεων.xaml.cs">
+      <DependentUpon>Σελίδα_Συχνών_Ερωτήσεων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Σελίδα_Τμημάτων.xaml.cs">
+      <DependentUpon>Σελίδα_Τμημάτων.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Συγγράμματα.xaml.cs">
+      <DependentUpon>Συγγράμματα.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Συχνές_Ερωτήσεις.xaml.cs">
+      <DependentUpon>Συχνές_Ερωτήσεις.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Τμήματα.xaml.cs">
+      <DependentUpon>Τμήματα.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CustomTree.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\booksDataSource\booksDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\departmentsDataSource\departmentsDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\evenSemestersDataSource\evenSemestersDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\faqStudentDataSource\faqStudentDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\institutionsDataSource\institutionsDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\semestersDataSource\semestersDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ανακοίνωση.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Απλή_Αναζήτηση.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Αρχική_Σελίδα.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Δημιουργία_Δήλωσης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Εγγραφή.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Επιλογή_Ομάδας.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Επισκόπηση_Δήλωσης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ιστορικό_Δηλώσεων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Μαθήματα.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Νέα_Ανακοινώσεις.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Παλαιά_Δήλωση.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Προφίλ_Φοιτητή.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σύνδεση.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σύνθετη_Αναζήτηση.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα Μαθημάτων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Ανακοίνωσης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Απλής_Αναζήτησης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Δημιουργίας_Δήλωσης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Εγγραφής.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Επιλογών_Γραμματείας.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Επιλογών_Εκδότη.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Επισκόπησης_Δήλωσης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Ιδρυμάτων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProjectDataSources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDataSources>True</ContainsDataSources>
+    </Page>
+    <Page Include="Αριστερό_μενού.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Επικεφαλίδα_σελίδας.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Επιλογές Γραμματείας.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Επιλογές Εκδότη.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Επιλογές Φοιτητή.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SketchStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Properties\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
+    <Page Include="Ιδρύματα.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Εξάμηνα.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Επιλογών_Φοιτητή.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Εξαμήνων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Ιστορικού_Δηλώσεων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Νέων_Ανακοινώσεων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Παλαιάς_Δήλωσης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Προφίλ_Φοιτητή.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Σύνδεσης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Σύνθετης_Αναζήτησης.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Συγγραμμάτων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Συχνών_Ερωτήσεων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Σελίδα_Τμημάτων.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Συγγράμματα.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Συχνές_Ερωτήσεις.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Τμήματα.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Fonts\BuxtonSketch.ttf" />
+    <Resource Include="Fonts\SketchFlow Print.ttf" />
+    <Resource Include="Fonts\SegoeMarker.ttf" />
+    <Resource Include="departments.xml" />
+    <Resource Include="globe.png" />
+    <Resource Include="institutions.xml" />
+    <Resource Include="logo_bw.png" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\cover-22689021.jpg" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\cover-45234.jpg" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\cover-45390.jpg" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\image01.png" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\image02.png" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\image03.png" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\image04.png" />
+    <Resource Include="SampleData\booksDataSource\booksDataSource_Files\image05.png" />
+    <Resource Include="semesters.xml" />
+    <Resource Include="Sketch.Flow" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignTimeOnly Include="SampleData\semestersDataSource\semestersDataSource.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignTimeOnly Include="SampleData\institutionsDataSource\institutionsDataSource.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignTimeOnly Include="SampleData\departmentsDataSource\departmentsDataSource.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignTimeOnly Include="SampleData\booksDataSource\booksDataSource.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignTimeOnly Include="SampleData\evenSemestersDataSource\evenSemestersDataSource.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignTimeOnly Include="SampleData\faqStudentDataSource\faqStudentDataSource.xsd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

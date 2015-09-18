@@ -1,0 +1,77 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.faqStudentDataSource"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Ανακοίνωση"
+	Width="640" Height="480">
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Eudoxus.Screens;component/GridMenu.xaml"/>
+				<ResourceDictionary Source="CustomTree.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+
+			<SampleData:faqs x:Key="faqStudentDataSource" d:IsDataSource="True"/>
+
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="White" Style="{StaticResource gridStyle}"
+	DataContext="{StaticResource faqStudentDataSource}">
+		<StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,6,0,0">
+
+			<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width">
+
+				<Button Content="Εύδοξος" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Αρχική_Σελίδα"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+				<Button Content="Επιλογές Φοιτητή" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Επιλογών_Φοιτητή"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+				<Button Content="Ανακοινώσεις" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButtonDisabled}"/>
+
+			</StackPanel>
+
+		<StackPanel Orientation="Vertical">
+			
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,28,0,0">
+				<TextBlock Grid.Column="0" Text="14/10/2013" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+				<TextBlock Grid.Column="0" Text=" - " Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+				<Button Grid.Column="1" Content="Πλατφόρμα ανταλλαγής σχολικών βιβλίων" Style="{StaticResource urlButtonDisabled}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" Grid.Row="3" />
+			</StackPanel>
+			
+			<TextBlock TextWrapping="Wrap" Width="525" Height="Auto" Style="{StaticResource BasicTextBlock-Sketch}"
+				Text="To book4book.gr είναι μία πλατφόρμα δικτύωσης ανθρώπων οι οποίοι επιθυμούν να ανταλλάξουν βιβλία. Φέρνει σε επαφή αυτούς που προσφέρουν και ζητούν και τους παρέχει τα εργαλεία να οργανώσουν μία συνάντηση όπου όλοι μαζί πλέον θα μετατρέψουν την ανταλλαγή βιβλίων σε ένα μεγάλο κοινωνικό γεγονός. Στον ενάμιση χρόνο λειτουργίας της δράσης, η διαδικτυακή πύλη διακρίθηκε και βραβεύτηκε σε διεθνείς διαγωνισμούς όπως το European Project Awardscompetition, το οποίο διοργανώνεται κάθε χρόνο από το European Projects Association καθώς και στο διαγωνισμό World Summit Youth Award, το οποίο είναι ένας παγκόσμιος διαγωνισμός καινοτομίας του Οργανισμού Ηνωμένων Εθνών, που συγκεντρώνει νέους προγραμματιστές και επιχειρηματίες του διαδικτύου - κάτω των 30 ετών - που χρησιμοποιούν τις νέες τεχνολογίες για να συνεισφέρουν σε σημαντικούς στόχους που έχει θέσει ο ΟΗΕ όπως η καταπολέμηση της πείνας, η προστασία του περιβάλλοντος, η εκπαίδευση για όλους κλπ Περισσότερες πληροφορίες μπορείτε να βρείτε στο Δελτίο Τύπου και στο portal της Δράσης." Margin="0,6,0,0"
+			/>
+				
+		</StackPanel>
+
+		</StackPanel>
+		
+		<Button Content="Επιστροφή" HorizontalAlignment="Right" Style="{StaticResource Button-Sketch}" VerticalAlignment="Bottom" Margin="0,0,12,12">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="Click">
+					<pi:NavigateBackAction/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Button>
+	</Grid>
+</UserControl>

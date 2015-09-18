@@ -1,0 +1,19 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:EudoxusScreens"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Σελίδα_Ιδρυμάτων">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+			<local:Αριστερό_μενού d:IsPrototypingComposition="True" d:LayoutOverrides="Height" HorizontalAlignment="Left"/>
+			<StackPanel VerticalAlignment="Bottom">
+				<local:Επικεφαλίδα_σελίδας d:IsPrototypingComposition="True"/>
+				<local:Ιδρύματα d:IsPrototypingComposition="True"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

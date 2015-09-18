@@ -1,0 +1,24 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Επικεφαλίδα_σελίδας"
+	Width="640" Height="64">
+
+	<Grid x:Name="LayoutRoot" Background="#FF589EFF">
+		<TextBlock Style="{StaticResource TextBlock-Sketch}" TextWrapping="Wrap" Text="Εύδοξος" Foreground="#C4FFFFFF" FontStyle="Italic" FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="6,6,0,0"/>
+		<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,8,0">
+			<Image Source="globe.png" HorizontalAlignment="Center" Width="27" Height="27" Margin="0,0,4,0" />
+			<ComboBox Style="{StaticResource ComboBox-Sketch}" VerticalAlignment="Center" SelectedIndex="0" Width="90">
+				<ComboBoxItem Content="Ελληνικά" />
+				<ComboBoxItem Content="English" />
+				<ComboBoxItem Content="Deutch" />
+				<ComboBoxItem Content="Français" />
+				<ComboBoxItem Content="Italiano" />
+				<ComboBoxItem Content="Español" />
+			</ComboBox>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,98 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:tk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.semestersDataSource"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Μαθήματα_Τμήματος"
+	Width="640" Height="480">
+	<UserControl.Resources>
+
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="CustomTree.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+
+			<SampleData:institution x:Key="semestersDataSource" d:IsDataSource="True"/>
+
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="White" Style="{StaticResource gridStyle}"
+	DataContext="{StaticResource semestersDataSource}">
+		<StackPanel Orientation="Vertical" d:LayoutOverrides="Height" Margin="0,6,0,0">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+
+				<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}" Content="Εύδοξος">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Αρχική_Σελίδα" />
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+
+				<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}" Content="Ιδρύματα">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Ιδρυμάτων"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+
+				<Button Content="{Binding name}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Τμημάτων"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+				<Button Content="{Binding department.name}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButtonDisabled}"/>
+
+			</StackPanel>
+			<TextBlock Style="{StaticResource TextBlock-Sketch}" TextWrapping="Wrap" Text="Μαθήματα Τμήματος" Margin="6,6,0,0" FontSize="18.667" Visibility="Collapsed"/>
+			<ScrollViewer Height="400" BorderThickness="0" Style="{StaticResource ScrollViewer-Sketch}" BorderBrush="#00606060">
+				<ScrollViewer.Resources>
+					
+					<sdk:HierarchicalDataTemplate x:Key="semesterTemplate" ItemsSource="{Binding courseCollection}">
+					
+						<TextBlock Text="{Binding name}" Style="{StaticResource BasicTextBlock-Sketch}" />
+
+						<sdk:HierarchicalDataTemplate.ItemTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<Button Content="{Binding name}" Style="{StaticResource urlButton}" >
+										<i:Interaction.Triggers>
+											<i:EventTrigger EventName="Click">
+												<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Συγγραμμάτων"/>
+											</i:EventTrigger>
+										</i:Interaction.Triggers>
+									</Button>
+								</StackPanel>
+							</DataTemplate>	
+						</sdk:HierarchicalDataTemplate.ItemTemplate>
+						
+					</sdk:HierarchicalDataTemplate>
+
+				</ScrollViewer.Resources>
+				
+				<sdk:TreeView 
+					ItemContainerStyle="{StaticResource TreeViewItemStyle1}"
+					ItemTemplate="{StaticResource semesterTemplate}" 
+					ItemsSource="{Binding department.semesterCollection}"
+					BorderThickness="0" Width="620">
+				</sdk:TreeView>
+					
+			</ScrollViewer>
+		</StackPanel>
+	</Grid>
+
+</UserControl>

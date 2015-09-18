@@ -1,0 +1,243 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:tk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.booksDataSource"
+	xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
+	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Απλή_Αναζήτηση"
+	Width="640" Height="480">
+	<UserControl.Resources>
+
+		<ResourceDictionary/>
+
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="White" Style="{StaticResource gridStyle}">
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="showResults">
+				<VisualStateGroup.Transitions>
+					<VisualTransition GeneratedDuration="0:0:1"/>
+				</VisualStateGroup.Transitions>
+				<VisualState x:Name="_default"/>
+				<VisualState x:Name="shown">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="stackPanel">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<Visibility>Visible</Visibility>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+		<StackPanel Orientation="Vertical" d:LayoutOverrides="Height" Margin="0,6,0,0">
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+
+				<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}" Content="Εύδοξος">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Αρχική_Σελίδα" />
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+				<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+
+				<Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButtonDisabled}" Content="Αναζήτηση Συγγραμμάτων">
+					<!--<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Ιδρυμάτων"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>-->
+				</Button>
+
+			</StackPanel>
+			
+			<StackPanel HorizontalAlignment="Center" Margin="0,18,0,0">
+				<StackPanel.Resources>
+					<SolidColorBrush x:Key="SearchButtonBrush" Color="#FFFFC2C2"/>
+				</StackPanel.Resources>
+				<TextBlock Text="Λέξεις-Κλειδιά" Style="{StaticResource TextBlock-Sketch}" />
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+					
+					<TextBox Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Width="170" />
+					<Button Content="Αναζήτηση" Style="{StaticResource Button-Sketch}" Margin="6,0,0,0" Background="{StaticResource SearchButtonBrush}" Width="84" Height="34">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<pi:ActivateStateAction TargetState="shown"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</Button>
+					
+				</StackPanel>
+			
+				<Button Content="Σύνθετη Αναζήτηση" Style="{StaticResource urlButton}" HorizontalAlignment="Center" Margin="0,6,0,0">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Σύνθετης_Αναζήτησης"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+
+			</StackPanel>
+			<StackPanel x:Name="stackPanel" Orientation="Vertical" Margin="0,6,0,0" Visibility="Collapsed">
+				<TextBlock Style="{StaticResource TextBlock-Sketch}" TextWrapping="Wrap" Text="Αποτελέσματα Αναζήτησης" Margin="6,0,0,0" FontSize="18.667" Width="585"/>
+				<Grid Margin="0" HorizontalAlignment="Center">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="16" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="24" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0" />
+						<ColumnDefinition Width="70" />
+						<ColumnDefinition Width="180" />
+						<ColumnDefinition Width="140" />
+						<ColumnDefinition Width="90" />
+						<ColumnDefinition Width="35" />
+						<ColumnDefinition Width="70" />
+					</Grid.ColumnDefinitions>
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="1" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="1" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="1" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="1" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="1" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="1" />
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="2" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="2" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="2" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="2" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="2" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="2" />
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="3" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="3" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="3" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="3" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="3" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="3" />
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="4" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="4" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="4" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="4" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="4" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="4" />
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="5" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="5" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="5" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="5" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="5" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="5" />
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="6" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="6" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="6" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="6" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="6" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="6" />
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="7" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="7" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="7" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="7" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="7" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="7" />
+
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="1" Grid.Row="8" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="2" Grid.Row="8" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="3" Grid.Row="8" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="4" Grid.Row="8" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="5" Grid.Row="8" />
+					<pc:SketchRectangleSL Style="{StaticResource Rectangle-Sketch}" Grid.Column="6" Grid.Row="8" />
+
+					<TextBlock Grid.Column="1" Text="Κωδικός" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+					<TextBlock Grid.Column="2" Text="Τίτλος" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+					<TextBlock Grid.Column="3" Text="Συγγραφέας" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+					<TextBlock Grid.Column="4" Text="Εκδότης" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+					<TextBlock Grid.Column="5" Text="Σελ." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+					<TextBlock Grid.Column="6" Text="ISBN" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" />
+
+					<TextBlock Grid.Column="1" Text="22689" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+					<TextBlock Grid.Column="2" Text="Απειροστικός Λογισμός" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+					<TextBlock Grid.Column="3" Text="Finney R.L., Weir M.D." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+					<TextBlock Grid.Column="4" Text="Π. Ε. Κρήτης" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+					<TextBlock Grid.Column="5" Text="1236" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+					<TextBlock Grid.Column="6" Text="524-182-7" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+
+					<TextBlock Grid.Column="1" Text="45234" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+					<TextBlock Grid.Column="2" Text="Γενικά Μαθηματικά - Τόμος Ι" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+					<TextBlock Grid.Column="3" Text="Αθανασιάδης Χ.Ε." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+					<TextBlock Grid.Column="4" Text="Συμμετρία" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+					<TextBlock Grid.Column="5" Text="560" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+					<TextBlock Grid.Column="6" Text="266-248-9" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+
+					<TextBlock Grid.Column="1" Text="45390" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+					<TextBlock Grid.Column="2" Text="Εφαρμ. Απειροστικός Λογισμός" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+					<TextBlock Grid.Column="3" Text="Τσίτσας Λ." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+					<TextBlock Grid.Column="4" Text="Συμμετρία" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+					<TextBlock Grid.Column="5" Text="736" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+					<TextBlock Grid.Column="6" Text="266-152-3" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" />
+					
+					<TextBlock Grid.Column="1" Text="58853" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" />
+					<TextBlock Grid.Column="2" Text="Δίκτυα Επικοινωνιών" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" />
+					<TextBlock Grid.Column="3" Text="Walrand J." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" />
+					<TextBlock Grid.Column="4" Text="Κλειδάριθμος" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" />
+					<TextBlock Grid.Column="5" Text="874" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" />
+					<TextBlock Grid.Column="6" Text="311-467-2" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" />
+
+					<TextBlock Grid.Column="1" Text="90684" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" />
+					<TextBlock Grid.Column="2" Text="Δίκτυα Υπολογιστών - Τόμος 1" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" />
+					<TextBlock Grid.Column="3" Text="Tanenbaum A.S." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" />
+					<TextBlock Grid.Column="4" Text="Παπασωτηρίου" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" />
+					<TextBlock Grid.Column="5" Text="495" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" />
+					<TextBlock Grid.Column="6" Text="384-621-1" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" />
+					
+					<TextBlock Grid.Column="1" Text="96784" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" />
+					<TextBlock Grid.Column="2" Text="Δικτύωση Υπολογιστών" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" />
+					<TextBlock Grid.Column="3" Text="J.F. Kurose" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" />
+					<TextBlock Grid.Column="4" Text="Συμμετρία" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" />
+					<TextBlock Grid.Column="5" Text="948" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" />
+					<TextBlock Grid.Column="6" Text="958-243-3" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" />
+
+					<TextBlock Grid.Column="1" Text="29473" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" />
+					<TextBlock Grid.Column="2" Text="Συστήματα Τηλεπικοινωνιών" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" />
+					<TextBlock Grid.Column="3" Text="Proakis J." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" />
+					<TextBlock Grid.Column="4" Text="Παν. Αθηνών" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" />
+					<TextBlock Grid.Column="5" Text="933" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" />
+					<TextBlock Grid.Column="6" Text="524-182-7" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" />
+
+					<TextBlock Grid.Column="1" Text="96123" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" />
+					<TextBlock Grid.Column="2" Text="Ψηφιακές Επικοινωνίες" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" />
+					<TextBlock Grid.Column="3" Text="Sklar B." Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" />
+					<TextBlock Grid.Column="4" Text="Συμμετρία" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" />
+					<TextBlock Grid.Column="5" Text="752" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" />
+					<TextBlock Grid.Column="6" Text="266-248-9" Style="{StaticResource TextBlock-Sketch}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" />
+					
+				</Grid>
+				
+			</StackPanel>
+			
+		</StackPanel>
+	</Grid>
+
+</UserControl>

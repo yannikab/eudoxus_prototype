@@ -1,0 +1,85 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.faqStudentDataSource"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Συχνές_Ερωτήσεις"
+	Width="640" Height="480">
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Eudoxus.Screens;component/GridMenu.xaml"/>
+				<ResourceDictionary Source="CustomTree.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+
+			<SampleData:faqs x:Key="faqStudentDataSource" d:IsDataSource="True"/>
+
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="White" Style="{StaticResource gridStyle}"
+	DataContext="{StaticResource faqStudentDataSource}">
+
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" d:LayoutOverrides="Width" Margin="0,6,0,0">
+
+			<Button Content="Εύδοξος" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="Click">
+						<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Αρχική_Σελίδα"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</Button>
+			<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+			<Button Content="Επιλογές Φοιτητή" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButton}">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="Click">
+						<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Επιλογών_Φοιτητή"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</Button>
+			<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="&gt;" Margin="5,0,0,0"/>
+			<Button Content="Συχνές Ερωτήσεις" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButtonDisabled}"/>
+
+		</StackPanel>
+		<ComboBox Style="{StaticResource ComboBox-Sketch}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,6,0" Width="140" SelectedIndex="1">
+			<ComboBoxItem Content="Όλες" />
+			<ComboBoxItem Content="Φοιτητές" />
+			<ComboBoxItem Content="Εκδότες" />
+			<ComboBoxItem Content="Γραμματείες" />
+			<ComboBoxItem Content="Σημεία Διανομής" />
+		</ComboBox>
+		
+		<ScrollViewer BorderThickness="0" Style="{StaticResource ScrollViewer-Sketch}" BorderBrush="#00606060" Height="420" Margin="0,40,0,0">
+			<ScrollViewer.Resources>
+			
+				<sdk:HierarchicalDataTemplate x:Key="questionTemplate" ItemsSource="{Binding answerCollection}">
+				
+				<TextBlock TextWrapping="Wrap" Width="570" Height="Auto" Text="{Binding text}" Style="{StaticResource BasicTextBlock-Sketch}" />
+				
+				<sdk:HierarchicalDataTemplate.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock TextWrapping="Wrap" Width="550" Text="{Binding text}" Style="{StaticResource BasicTextBlock-Sketch}"/>
+						</StackPanel>
+					</DataTemplate>
+				</sdk:HierarchicalDataTemplate.ItemTemplate>
+				
+			</sdk:HierarchicalDataTemplate>
+			</ScrollViewer.Resources>
+			
+			<sdk:TreeView BorderThickness="0" Width="620" 
+				ItemContainerStyle="{StaticResource TreeViewItemStyle1}"
+				ItemsSource="{Binding questionCollection}"
+				ItemTemplate="{StaticResource questionTemplate}" />
+				
+		</ScrollViewer>
+
+	</Grid>
+</UserControl>

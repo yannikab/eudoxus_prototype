@@ -1,0 +1,73 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	mc:Ignorable="d"
+	x:Class="EudoxusScreens.Επιλογή_Ομάδας"
+	Width="640" Height="480">
+    
+	<UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Eudoxus.Screens;component/GridMenu.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+	    </ResourceDictionary>
+    </UserControl.Resources>
+	
+    <Grid x:Name="LayoutRoot" Background="White" Style="{StaticResource gridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+		<Button Style="{StaticResource buttonStyle}" Grid.Row="0" Grid.Column="0" Content="Φοιτητές" Background="{StaticResource UserGroupBrush}" >
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="Click">
+					<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Επιλογών_Φοιτητή"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Button>
+        <Button Style="{StaticResource buttonStyle}" Grid.Row="0" Grid.Column="1" Content="Γραμματείες" Background="{StaticResource UserGroupBrush}" >
+        	<i:Interaction.Triggers>
+        		<i:EventTrigger EventName="Click">
+        			<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Επιλογών_Γραμματείας"/>
+        		</i:EventTrigger>
+        	</i:Interaction.Triggers>
+        </Button>
+		<Button Style="{StaticResource buttonStyle}" Grid.Column="3" Content="Εκδότες" Background="{StaticResource UserGroupBrush}" >
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="Click">
+					<pi:NavigateToScreenAction TargetScreen="EudoxusScreens.Σελίδα_Επιλογών_Εκδότη"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Button>
+        <Button Style="{StaticResource buttonStyle}" Grid.Row="1" Content="Σημεία διανομής" Background="{StaticResource UserGroupBrush}" />
+        <Button Style="{StaticResource buttonStyle}" Grid.Row="1" Grid.Column="2" Content="Υπεύθυνοι παραγγελιών" Background="{StaticResource UserGroupBrush}" />
+        <Button Style="{StaticResource buttonStyle}" Grid.Row="1" Content="Βιβλιοθήκες" Background="{StaticResource UserGroupBrush}" Grid.Column="1" />
+        <Button Style="{StaticResource buttonStyle}" Grid.Row="2" Grid.Column="0" Content="Γραφεία μηχανογράφησης" Background="{StaticResource UserGroupBrush}" />
+        <Button Style="{StaticResource buttonStyle}" Grid.Row="2" Grid.Column="1" Content="Γραφεία διδακτικών συγγραμμάτων" Background="{StaticResource UserGroupBrush}" />
+        <Button Style="{StaticResource buttonStyle}" Grid.Row="2" Grid.Column="2" Content="Άλλοι Φορείς" Background="{StaticResource UserGroupBrush}" />
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" d:LayoutOverrides="Width" Margin="0,6,0,0">
+            <Button Content="Εύδοξος" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0" Style="{StaticResource urlButtonDisabled}"/>
+        </StackPanel>
+		
+        <TextBox HorizontalAlignment="Right" Style="{StaticResource Note-Sketch}" Width="167" FontSize="18.667" Text="Γαλάζιο: Υποδηλώνει ομάδα χρηστών." TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Margin="0,0,-18,-23" VerticalAlignment="Bottom" Height="94" Grid.Column="2">
+        	<TextBox.RenderTransform>
+        		<CompositeTransform ScaleX="0.75" ScaleY="0.75"/>
+        	</TextBox.RenderTransform>
+        	<TextBox.Projection>
+        		<PlaneProjection RotationX="-0.321" RotationY="23.049" RotationZ="-4.18"/>
+        	</TextBox.Projection>
+        </TextBox>
+
+    </Grid>
+</UserControl>
